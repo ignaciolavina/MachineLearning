@@ -1,5 +1,5 @@
 /*
-IA Machine Learning tryout
+  IA Machine Learning tryout
 */
 
 
@@ -25,7 +25,7 @@ void setup(){
      
      gameState = GameState.GAME;
 
-  
+      
 }
 
 void draw(){
@@ -38,11 +38,13 @@ void draw(){
    break;
    
    case GAME:
-     
+     //imageMode(CORNER);
      image(background_img, 0, 0);
+     
+    imageMode(CENTER);
      car.draw();
      obs1.draw();
-     
+     text("sensor: " + car.sensor, 20, 20);
      check_colision();
    
    break;
@@ -55,9 +57,16 @@ void draw(){
      //funcion (obj1, obj2);
      params_a = car.params();
      params_b = obstaculos.get(i).params();
+     line(params_a[0], params_a[1], params_b[0], params_b[1]);
      //comprobamos colision
      if ((params_a[0] + params_a[2]) >= params_b[0]){
        car.choque();
+     }
+     if ((params_a[0] + params_a[2]) >= params_b[0]){
+       car.choque();
+     }
+     if (params_b[0] - (params_a[0] + params_a[2] + car.SENS_LONG) <= 0){
+       car.sensor = params_b[0] - (params_a[0] + params_a[2]);
      }
    }
     
@@ -75,6 +84,13 @@ void keyPressed(){
           break;
         case RIGHT:
           car.moveRight();
+          break;
+      }
+        case UP:
+          car.moveUp();
+          break;
+        case DOWN:
+          car.moveDown();
           break;
       }
     }

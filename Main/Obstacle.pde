@@ -6,9 +6,13 @@ class Obstacle{
   int alto = 50;
   int ancho = 120; 
   
+  int start_x = 500;
+  int start_y = 200;
+  
+  
   public Obstacle(){
-    x= 500;
-    y = 100;
+    x= start_x;
+    y = start_y;
     //rect(30, 20, 55, 55);
     color c;  // Declare color 'c'
     //noStroke();  // Don't draw a stroke around shapes
@@ -18,6 +22,7 @@ class Obstacle{
   } 
   
   public void draw(){
+    fill(20);
     rect(x, y, 55, 300);    
   }
   
