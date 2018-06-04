@@ -8,7 +8,7 @@ class Car{
   boolean crashed = false;
   
   int start_x = 100;
-  int start_y = 200;
+  int start_y = 300;
   
   int SENS_LONG = 200;
   int sensor = 200;
@@ -33,6 +33,7 @@ class Car{
     if (crashed){      
       image (image, x, y);
     }
+    image (image, x, y);
     fill(20);
     rectMode(CENTER);
     rect(x, y, ancho, alto);

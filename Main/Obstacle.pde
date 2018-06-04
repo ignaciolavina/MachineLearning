@@ -3,11 +3,11 @@ class Obstacle{
   public PImage image;
   int x;
   int y;
-  int alto = 50;
-  int ancho = 120; 
+  int ancho = 50;
+  int alto = 300; 
   
   int start_x = 500;
-  int start_y = 200;
+  int start_y = 300;
   
   
   public Obstacle(){
@@ -23,7 +23,7 @@ class Obstacle{
   
   public void draw(){
     fill(20);
-    rect(x, y, 55, 300);    
+    rect(x, y, ancho, alto);    
   }
   
     public int[] params(){

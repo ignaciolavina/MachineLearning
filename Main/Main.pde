@@ -38,13 +38,14 @@ void draw(){
    break;
    
    case GAME:
-     //imageMode(CORNER);
+     imageMode(CORNER);
      image(background_img, 0, 0);
      
     imageMode(CENTER);
      car.draw();
      obs1.draw();
      text("sensor: " + car.sensor, 20, 20);
+     
      check_colision();
    
    break;
@@ -59,14 +60,24 @@ void draw(){
      params_b = obstaculos.get(i).params();
      line(params_a[0], params_a[1], params_b[0], params_b[1]);
      //comprobamos colision
+     /*
      if ((params_a[0] + params_a[2]) >= params_b[0]){
        car.choque();
      }
      if ((params_a[0] + params_a[2]) >= params_b[0]){
        car.choque();
      }
-     if (params_b[0] - (params_a[0] + params_a[2] + car.SENS_LONG) <= 0){
-       car.sensor = params_b[0] - (params_a[0] + params_a[2]);
+     */
+     ellipse((params_b[0] - params_b[2]/2), params_b[1], 5, 5);
+     //(((params_b[0] - params_b[2]/2) - (params_a[0] + params_a[2]/2)) <= 0) && 
+     //(((params_b[1] - params_b[3]/2) - (params_a[1] + params_a[3]/2)) <= 0)
+     if ( (((params_b[0] - params_b[2]/2) - (params_a[0] + params_a[2]/2)) <= 0)  && ( ((params_a[0] - params_a[2]/2) - (params_b[0] + params_b[2]/2)) <=0 )) {
+       
+
+       car.choque();
+     }else{
+       car.image = loadImage("./Assets/Car.png");
+       
      }
    }
     
@@ -84,8 +95,7 @@ void keyPressed(){
           break;
         case RIGHT:
           car.moveRight();
-          break;
-      }
+          break;      
         case UP:
           car.moveUp();
           break;
