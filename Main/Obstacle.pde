@@ -7,7 +7,7 @@ class Obstacle{
   int alto = 300; 
   
   int start_x = 500;
-  int start_y = 300;
+  int start_y = 200;
   
   
   public Obstacle(){
@@ -25,10 +25,5 @@ class Obstacle{
     fill(20);
     rect(x, y, ancho, alto);    
   }
-  
-    public int[] params(){
-     int [] i = {x, y, ancho, alto};
-     return i;
-  }
-  
+    
 }
