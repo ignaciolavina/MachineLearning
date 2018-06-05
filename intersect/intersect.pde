@@ -11,8 +11,8 @@ void setup(){
     A = new Punto(450, 100);
     B = new Punto(600, 300);
     
-    C = new Punto(50, 500);
-    D = new Punto(500, 100);
+    C = new Punto(400, 500);
+    D = new Punto(600, 100);
     
   }
   
@@ -53,6 +53,10 @@ PVector lineIntersection(float x1, float y1, float x2, float y2, float x3, float
   // if uA and uB are between 0-1, lines are colliding
   if (uA >= 0 && uA <= 1 && uB >= 0 && uB <= 1) {
     ellipse(x1 + (uA * (x2-x1)), y1 + (uA * (y2-y1)), 5, 5);
+    ellipse(uA, uB, 50,50);
+    fill(20);
+    text(".." + uA + ", " + uB, 200, 200);
+    text("valor: "  , 100, 100);
     return new PVector(x1 + (uA * (x2-x1)), y1 + (uA * (y2-y1)));
   }
   return null;
